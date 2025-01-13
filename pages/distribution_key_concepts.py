@@ -8,6 +8,18 @@ st.set_page_config(
     layout="centered"
 )
 
+st.markdown(
+        """
+    <style>
+        div[role=radiogroup] label:first-of-type {
+            visibility: hidden;
+            height: 0px;
+        }
+    </style>
+    """,
+        unsafe_allow_html=True,
+    )
+
 # ---------------------------
 # Main Title
 # ---------------------------
@@ -58,7 +70,8 @@ st.write(
 st.write("**Q1: What is the primary function of substations?**")
 answer_q1 = st.radio(
     "",
-    ["To increase the voltage of electricity for long-distance transmission", 
+    [" ",
+        "To increase the voltage of electricity for long-distance transmission", 
      "To control the flow of electricity and reduce voltage for local distribution", 
      "To generate electricity for distribution", 
      "To provide backup power during outages"]
@@ -76,7 +89,8 @@ elif answer_q1 == "To provide backup power during outages":
 st.write("**Q2: What role do transformers play in the electrical grid?**")
 answer_q2 = st.radio(
     "",
-    ["They help to prevent electrical faults from spreading",
+    [" ",
+        "They help to prevent electrical faults from spreading",
      "They store electrical energy for later use",
      "They step up or step down voltage for safe transmission and distribution",
      "They distribute electricity directly to consumers"]
@@ -94,7 +108,8 @@ elif answer_q2 == "They distribute electricity directly to consumers":
 st.write("**Q3: What is the purpose of switchgear and circuit breakers in substations?**")
 answer_q3 = st.radio(
     "",
-    ["To increase the voltage of electricity",
+    [" ",
+        "To increase the voltage of electricity",
      "To isolate faults and prevent outages from spreading",
      "To generate electricity",
      "To convert electricity into usable power for businesses"]
@@ -112,7 +127,8 @@ elif answer_q3 == "To convert electricity into usable power for businesses":
 st.write("**Q4: What is the primary function of feeders in the electrical grid?**")
 answer_q4 = st.radio(
     "",
-    ["To increase the voltage for long-distance transmission",
+    [" ",
+        "To increase the voltage for long-distance transmission",
      "To carry electricity from substations to transformers or consumers",
      "To distribute electricity to businesses",
      "To store electrical energy for later use"]
@@ -130,7 +146,8 @@ elif answer_q4 == "To store electrical energy for later use":
 st.write("**Q5: What type of voltage do distribution lines generally carry for homes and businesses?**")
 answer_q5 = st.radio(
     "",
-    ["High voltage", "Low voltage", "Medium voltage", "Extra-high voltage"]
+    [" ",
+        "High voltage", "Low voltage", "Medium voltage", "Extra-high voltage"]
 )
 if answer_q5 == "High voltage":
     st.error("Not quite. High voltage is typically used for long-distance transmission, not distribution.")
@@ -162,41 +179,56 @@ st.write(
     """
 )
 
-# Question 1 - Multiple Choice
-st.write("**Q1: Which of the following is a characteristic of a radial distribution network configuration?**")
-answer_q1 = st.radio(
+
+
+
+# Question 6 - Multiple Choice
+st.write("**Q6: Which of the following is a characteristic of a radial distribution network configuration?**")
+answer_q6 = st.radio(
     "",
-    ["Cost-effective but vulnerable to outages", 
+    ["Select an option",  # Placeholder text to avoid default selection
+     "Cost-effective but vulnerable to outages", 
      "Creates redundancy and is highly reliable", 
      "Expensive but has multiple paths", 
      "Highly resilient with multiple interconnections"]
 )
-if answer_q1 == "Cost-effective but vulnerable to outages":
+if answer_q6 == "Select an option":
+    # Do nothing, no warning
+    pass
+elif answer_q6 == "Cost-effective but vulnerable to outages":
     st.success("Correct! Radial networks are cost-effective but vulnerable to outages.")
 else:
     st.error("Not quite. Radial networks are cost-effective but vulnerable to outages.")
 
-# Question 2 - Multiple Choice with Explanation
-st.write("**Q2: What is a mesh distribution network configuration?**")
-answer_q2 = st.radio(
+# Question 7 - Multiple Choice with Explanation
+st.write("**Q7: What is a mesh distribution network configuration?**")
+answer_q7 = st.radio(
     "",
-    ["Simple with single connection paths", 
+    ["Select an option",  # Placeholder text to avoid default selection
+     "Simple with single connection paths", 
      "Resilient with multiple interconnections, reliable in densely populated areas", 
      "Low-cost but prone to failures", 
      "Relies on a single power path"]
 )
-if answer_q2 == "Resilient with multiple interconnections, reliable in densely populated areas":
+if answer_q7 == "Select an option":
+    # Do nothing, no warning
+    pass
+elif answer_q7 == "Resilient with multiple interconnections, reliable in densely populated areas":
     st.success("Correct! Mesh networks are complex and highly resilient, especially in densely populated areas.")
 else:
     st.error("Not quite. Mesh networks are highly resilient, but they involve complex interconnections.")
 
 # Question 3 - True or False
-st.write("**Q3: A looped distribution network creates redundancy and can deliver power if one path fails.**")
-answer_q3 = st.radio(
+st.write("**Q8: A looped distribution network creates redundancy and can deliver power if one path fails.**")
+answer_q8 = st.radio(
     "",
-    ["True", "False"]
+    ["Select an option",  # Placeholder text to avoid default selection
+     "True", "False"]
 )
-if answer_q3 == "True":
+if answer_q8 == "Select an option":
+    # Do nothing, no warning
+    pass
+elif answer_q8 == "True":
     st.success("Correct! Looped networks have multiple paths, providing redundancy and reliability.")
 else:
     st.error("Not quite. Looped networks are designed to be reliable and provide redundancy.")
@@ -224,43 +256,54 @@ with col111:
     st.image(image_path_str, caption= "Jemena smart meter", use_container_width=True)
 
 
-# Question 4 - Multiple Choice with Custom Feedback
+# Question 9 - Multiple Choice with Custom Feedback
 with col222:
     st.write("**Q4: Which of these meters is used to convert high current/voltage to lower values for easy measurement?**")
-    answer_q4 = st.radio(
+    answer_q9 = st.radio(
         "",
-        ["Smart meters", 
-        "Digital meters", 
-        "Current transformer meters", 
-        "Analog meters"]
+        ["Select an option", "Smart meters", 
+         "Digital meters", 
+         "Current transformer meters", 
+         "Analog meters"]
     )
-    if answer_q4 == "Current transformer meters":
+    if answer_q9 == "Select an option":
+        # Do nothing, no warning or feedback
+        pass
+    elif answer_q9 == "Current transformer meters":
         st.success("Correct! Current transformer meters are used to step down high current/voltage for accurate readings.")
     else:
         st.error("Not quite. Current transformer meters are used for measuring high electrical capacity.")
 
-
-# Question5 - Short Answer
-st.write("**Q5: What is the primary purpose of metering?**")
-answer_q5 = st.text_input(
+# Question 10 - Short Answer
+st.write("**Q10: What is the primary purpose of metering?**")
+answer_q10 = st.text_input(
     "Type your answer here"
 )
-if answer_q5.strip().lower() == "measuring and recording the consumption of electricity":
+if answer_q10.strip() == "":
+    # Do nothing, no feedback if nothing is entered
+    pass
+elif answer_q10.strip().lower() == "measuring and recording the consumption of electricity":
     st.success("Correct! Metering involves measuring and recording energy consumption.")
 else:
     st.error("Not quite. Metering is the process of measuring and recording energy consumption.")
 
-# Question 6 - Multiple Choice with Multiple Correct Answers
-st.write("**Q6: Which of the following meters are used by Jemena? (Select all that apply)**")
-answer_q6 = st.multiselect(
+# Question 11 - Multiple Choice with Multiple Correct Answers
+st.write("**Q11: Which of the following meters are used by Jemena? (Select all that apply)**")
+answer_q11 = st.multiselect(
     "",
     ["Smart meters", "Digital meters", "Current transformer meters", "Analog meters"]
 )
-if "Smart meters" in answer_q6 and "Digital meters" in answer_q6 and "Current transformer meters" in answer_q6:
+
+# If no options are selected, no feedback is shown
+if not answer_q11:
+    pass  # Do nothing if no valid options are selected
+
+elif "Smart meters" in answer_q11 and "Digital meters" in answer_q11 and "Current transformer meters" in answer_q11:
     st.success("Correct! Jemena uses smart, digital, and current transformer meters.")
 else:
     st.error("Not quite. The correct answers are Smart meters, Digital meters, and Current transformer meters.")
 
+    
 # Two columns to compare Transmission and Distribution side-by-side
 col11,col22= st.columns(2)
 
@@ -276,28 +319,35 @@ with col22:
     The main function of secondary distribution is to distribute energy at lower voltages from the local transformers to homes and other end users.
     """)
 
-# Question 7 - Multiple Choice with Correct/Incorrect Feedback
-st.write("**Q7: What is the primary function of secondary distribution?**")
-answer_q7 = st.radio(
+import streamlit as st
+
+# Question 12 - Multiple Choice with Correct/Incorrect Feedback
+st.write("**Q12: What is the primary function of secondary distribution?**")
+answer_q12 = st.radio(
     "",
-    ["Transporting electricity from substations to local transformers", 
+    ["Select an option", "Transporting electricity from substations to local transformers", 
      "Delivering energy at lower voltages to end users", 
      "Carrying high voltage across large distances", 
      "Converting electricity for industrial use"]
 )
-if answer_q7 == "Delivering energy at lower voltages to end users":
+if answer_q12 == "Select an option":
+    # Do nothing, no feedback
+    pass
+elif answer_q12 == "Delivering energy at lower voltages to end users":
     st.success("Correct! Secondary distribution delivers energy at lower voltages to homes and businesses.")
 else:
     st.error("Not quite. Secondary distribution is responsible for delivering energy at lower voltages.")
 
-
-# Question 8 - Dropdown for Single Answer
-st.write("**Q8: Which distribution system covers larger distances and conducts higher voltages?**")
-answer_q8 = st.selectbox(
+# Question 13 - Dropdown for Single Answer
+st.write("**Q13:Which distribution system covers larger distances and conducts higher voltages?**")
+answer_q13= st.selectbox(
     "",
-    ["Primary distribution", "Secondary distribution"]
+    ["Select an option", "Primary distribution", "Secondary distribution"]
 )
-if answer_q8 == "Primary distribution":
+if answer_q13== "Select an option":
+    # Do nothing, no feedback
+    pass
+elif answer_q13== "Primary distribution":
     st.success("Correct! Primary distribution covers larger distances and conducts higher voltages.")
 else:
     st.error("Not quite. Secondary distribution operates at lower voltages and is closer to end users.")
