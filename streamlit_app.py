@@ -71,5 +71,5 @@ pg.run()
 script_dir = Path(__file__).parent
 image_path = script_dir / "assets" / "Jemena_BrandMark_RGB_000.png"
 image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
-st.logo(image_path_str, size="small", link = "https://www.jemena.com.au/")
+st.logo(image_path_str, link = "https://www.jemena.com.au/")
 
