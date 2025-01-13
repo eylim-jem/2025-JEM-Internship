@@ -132,83 +132,110 @@ st.write('''
         The Jemena Network environment is bordered by the Yarra river in the East and Port Phillip Bay in the south.
         ''')
 st.image(image_path_str, caption="The Jemena Electricity Network")
+
 # ---------------------------
 # Interactive Quiz / Elements
 # ---------------------------
-st.subheader("Test Your Understanding")
-st.markdown("""
-    **Answer the following questions to check your understanding of Jemena's role as a DNSP.**
-    """)
+st.subheader("Test Your Understanding:")
 
-with st.form("quiz_q1"):
-    # 1. Checkbox-based question
-    st.write("**Q1: Which part of the grid handles the highest voltage?**")
-    if st.checkbox("Transmission"):
-        st.success("Correct! Transmission lines handle the highest voltages.")
-    if st.checkbox("Distribution"):
-        st.error("Distribution lines carry electricity at lower voltages to the end users.")
-
-    image_path = project_root / "assets" / "JEN_customers.png"
-    image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
-    submitted = st.form_submit_button("Submit")
-
-with st.form("quiz_q2"):
-    st.write("**Q2: Approximately how many customers do you think Jemena services?**")
-    answer_q2 = st.radio(
-        "",
-        [" ","100,000", "200,000", "300,000", "400,000"]
+with st.form("grid_quiz"):
+    # ---------------------------
+    # Question 1: Checkbox-based question
+    # ---------------------------
+    st.subheader("Q1: Which part of the grid handles the highest voltage?")
+    # Using checkboxes allows the user to select any combination.
+    q1_transmission = st.checkbox("Transmission", key="q1_transmission")
+    q1_distribution = st.checkbox("Distribution", key="q1_distribution")
+    
+    # ---------------------------
+    # Question 2: Radio with image display on correct answer
+    # ---------------------------
+    st.subheader("Q2: Approximately how many customers do you think Jemena services?")
+    # Hide the first option placeholder using custom CSS later
+    q2 = st.radio(
+        "Select one:",
+        [" ", "100,000", "200,000", "300,000", "400,000"],
+        key="q2"
     )
+    
+    # ---------------------------
+    # Question 3: Radio question
+    # ---------------------------
+    st.subheader("Q3: Which segment of the network typically operates at 120 V or 240 V for homes?")
+    q3 = st.radio(
+        "Select one:",
+        [" ", "Transmission Network", "Distribution Network"],
+        key="q3"
+    )
+    
+    # ---------------------------
+    # Question 4: Slider question for voltage range guess
+    # ---------------------------
+    st.subheader("Q4: Guess the typical medium-voltage range (in kV) used in distribution.")
+    medium_voltage_guess = st.slider("Select a kV value", min_value=1, max_value=50, value=15, key="q4")
+    
+    # custom CSS for radio placeholders (for Q2 and Q3)
     st.markdown(
-            """
+        """
         <style>
-            div[role=radiogroup] label:first-of-type {
+            div[role="radiogroup"] label:first-of-type {
                 visibility: hidden;
                 height: 0px;
             }
         </style>
         """,
-            unsafe_allow_html=True,
-        )
-    if answer_q2==("100,000"):
-        st.error("Jemena services more customers than this!")
-    elif answer_q2==("200,000"):
-        st.error("Jemena services more customers than this!")
-    elif answer_q2 == ("300,000"):
-        st.error("Jemena services more customers than this!")
-    elif answer_q2==("400,000"):
-        st.success("Correct! Jemena services more than 387,000 customers for their electricity needs!")
-        st.image(image_path_str, caption="The Jemena Customer Breakdown")
-    submitted2 = st.form_submit_button("Submit")
-
-with st.form("quiz_q3"):
-    # 2. Buttons question
-    st.write("**Q3: Which segment of the network typically operates at 120 V or 240 V for homes?**")
-    answer_q3 = st.radio(
-        "",
-        [" ", "Transmission Network", "Distribution Network"]
+        unsafe_allow_html=True,
     )
-    if answer_q3 == "Transmission Network":
+
+    # Submit button for all quiz questions
+    submitted = st.form_submit_button("Submit Answers")
+
+if submitted:
+    st.write("---")
+    # ---------------------------
+    # Feedback for Question 1
+    # ---------------------------
+    st.markdown("**Feedback for Q1:**")
+    if q1_transmission and not q1_distribution:
+        st.success("Correct! Transmission lines handle the highest voltages.")
+    elif q1_transmission and q1_distribution:
+        st.error("Not quite. Although transmission lines handle the highest voltages, you should not select Distribution.")
+    elif not q1_transmission and q1_distribution:
+        st.error("Not quite. Distribution lines carry electricity at lower voltages to the end users.")
+    else:
+        st.info("Q1: Please select at least one option.")
+    
+    # ---------------------------
+    # Feedback for Question 2
+    # ---------------------------
+    st.markdown("**Feedback for Q2:**")
+    if q2 == " ":
+        st.info("Q2: Please select an option.")
+    elif q2 == "400,000":
+        st.success("Correct! Jemena services more than 387,000 customers for their electricity needs!")
+        st.image(image_path_str, caption="The Jemena Customer Breakdown", use_column_width=True)
+    else:
+        st.error("Not quite. Jemena services more customers than that!")
+    
+    # ---------------------------
+    # Feedback for Question 3
+    # ---------------------------
+    st.markdown("**Feedback for Q3:**")
+    if q3 == " ":
+        st.info("Q3: Please select an option.")
+    elif q3 == "Transmission Network":
         st.error("Not quite. Transmission lines operate at much higher voltages.")
-    elif answer_q3 == "Distribution Network":
+    elif q3 == "Distribution Network":
         st.success("Correct! Distribution lines usually serve customers at these lower voltage levels.")
-    submitted3 = st.form_submit_button("Submit")
-
-with st.form("quiz_q4"):
-    # 4. Slider to guess typical medium voltage range
-    st.write("**Q4: Guess the typical medium-voltage range (in kV) used in distribution.**")
-    medium_voltage_guess = st.slider("Select kV range", min_value=1, max_value=50, value=5, key = "q4_slider")
-    # if 4 <= medium_voltage_guess <= 35:
-    #     st.success("You're correct! Medium-voltage lines are often between 4 kV and 35 kV.")
-    # else:
-    #     st.info("Typically, medium-voltage lines range from about 4 kV to 35 kV.")
-
-    submitted4= st.form_submit_button("Submit")
-    if submitted4:
-        if 4 <= medium_voltage_guess <= 35:
-            st.success("You're correct! Medium-voltage lines are often between 4 kV and 35 kV.")
-        else:
-            st.info("Not quite, typically, medium-voltage lines range from about 4 kV to 35 kV.")
-
+    
+    # ---------------------------
+    # Feedback for Question 4
+    # ---------------------------
+    st.markdown("**Feedback for Q4:**")
+    if 4 <= medium_voltage_guess <= 35:
+        st.success("You're correct! Medium-voltage lines are often between 4 kV and 35 kV.")
+    else:
+        st.info("Typically, medium-voltage lines range from about 4 kV to 35 kV.")
 
 # ---------------------------
 # Conclusion / Thank You
@@ -218,6 +245,7 @@ st.write("### Thank you for learning about Electricity Distribution Networks!")
 st.write(
     """
     Feel free to explore more about how power is transmitted and distributed 
-    to our homes, businesses, and industries. 
+    to our homes, businesses, and industries.
     """
 )
+
