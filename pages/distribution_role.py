@@ -119,11 +119,23 @@ st.markdown("""
     """)
 
 with st.form("quiz_form"):
+        st.markdown(
+        """
+    <style>
+        div[role=radiogroup] label:first-of-type {
+            visibility: hidden;
+            height: 0px;
+        }
+    </style>
+    """,
+        unsafe_allow_html=True,
+    )
         # Question 1: Multiple-Choice
         st.subheader("1. Which of the following is a key benefit of implementing automation in smart grids?")
         q1 = st.radio(
             "Select one:",
             (
+                " ",
                 "Increases manual interventions during outages.",
                 "Minimises outages and optimises electricity flow.",
                 "Eliminates the need for any control systems.",
