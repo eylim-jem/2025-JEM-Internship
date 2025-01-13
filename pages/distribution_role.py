@@ -1,4 +1,6 @@
 import streamlit as st
+from pathlib import Path
+
 # ---------------------------
 # Page Config
 # ---------------------------
@@ -10,6 +12,12 @@ st.set_page_config(
 # ---------------------------
 # Main Title
 # ---------------------------
+
+script_dir = Path(__file__).parent
+project_root = script_dir.parent 
+image_path = project_root / "assets" / "smart_grid.png"
+image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
+
 st.title("Distribution in the Modern Grid")
 
 st.markdown("""
@@ -17,7 +25,7 @@ st.markdown("""
     """)
 
 try:
-    st.image(r"C:\Users\bpoort\OneDrive - onlineeportal\Desktop\Internship-2025-main\assets\smart_grid.png", caption="The Future of Electricity!", use_container_width=True)
+    st.image(image_path_str, caption="The Future of Electricity!", use_container_width=True)
 except FileNotFoundError:
     st.warning("Please ensure the image is in the same directory as the app.")
 
@@ -57,9 +65,10 @@ with st.expander("b. Integration of Distributed Energy Resources (DERs)"):
         - DER units are classified according to their size:
                     
                     """)
-        
+        image_path = project_root / "assets" / "DER.png"
+        image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
         try:
-            st.image(r"C:\Users\bpoort\OneDrive - onlineeportal\Desktop\Internship-2025-main\assets\DER.png", caption="DER Clasifications from AEMC (The Australian Energy Market Commission)", use_container_width=True)
+            st.image(image_path_str, caption="DER Clasifications from AEMC (The Australian Energy Market Commission)", use_container_width=True)
         except FileNotFoundError:
             st.warning("Please ensure the image is in the same directory as the app.")
 
@@ -88,9 +97,10 @@ with st.expander("d. Demand Growth in Specific Sectors: Data Centers (DCs)"):
         st.markdown("""
         - The exponential growth of cloud computing and digital services has significantly increased the electricity demand of data centers.
         """)
-
+        image_path = project_root / "assets" / "dc.png"
+        image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
         try:
-            st.image(r"C:\Users\bpoort\OneDrive - onlineeportal\Desktop\Internship-2025-main\assets\dc.png", caption="Forecasted Growth of Data Centers", use_container_width=True)
+            st.image(image_path_str, caption="Forecasted Growth of Data Centers", use_container_width=True)
         except FileNotFoundError:
             st.warning("dc.png not found. Please ensure the image is in the same directory as the app.")
 
@@ -220,3 +230,4 @@ st.write(
     to our homes, businesses, and industries. 
     """
 )
+
