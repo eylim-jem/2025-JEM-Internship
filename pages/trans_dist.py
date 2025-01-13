@@ -1,4 +1,6 @@
 import streamlit as st
+from pathlib import Path
+
 # ---------------------------
 # Page Config
 # ---------------------------
@@ -8,14 +10,18 @@ st.set_page_config(
 )
 
 col1, col2, col3 = st.columns([9, 11, 11])
+script_dir = Path(__file__).parent
+project_root = script_dir.parent 
+image_path = project_root / "assets" / "Jemena_BrandMark_RGB_000.png"
+image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
 
 # ---------------------------
 # Jemena Image 
 # ---------------------------
+
 with col2:
     st.image(
-        r"C:\Users\eylim\OneDrive - onlineeportal\Documents\GitHub\Internship-2025\assets\Jemena_BrandMark_RGB_000.png"
-        # r"C:\Users\bpoort\OneDrive - onlineeportal\Desktop\web_app\images\Jemena_BrandMark_RGB_000.png"
+        image_path_str
     )
 
 # ---------------------------
@@ -58,8 +64,11 @@ with col2:
 
 col1, col2, col3 = st.columns([0.1, 50, 0.1])  # Proportions for centering the image
 
+image_path = project_root / "assets" / "supplychain.png"
+image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
+
 with col2:
-    st.image(r"C:\Users\eylim\OneDrive - onlineeportal\Documents\GitHub\Internship-2025\assets\supplychain.png", width=1000)
+    st.image(image_path_str, width=1000)
 
 st.header("What does Jemena do?")
 st.write(
@@ -71,11 +80,14 @@ st.write(
     """
 )
 
+image_path = project_root / "assets" / "JEM_facts.png"
+image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
+
 with st.expander("Did you know?"):
     # st.write('''
     #     Jemena maintains more than 107,000 poles and their wires, with approximately 78,500 public lights under our service.
     #          ''')
-    st.image(r"C:\Users\eylim\OneDrive - onlineeportal\Documents\GitHub\Internship-2025\assets\JEM_facts.png")
+    st.image(image_path_str)
 st.write(
     """
     As a distribution network service provider (DNSP), Jemena is responsible for building, maintaining and operating its distribution network. To ensure the quality of service, Jemena is responsible for following the:
@@ -110,17 +122,21 @@ st.write(
     """
 )
 
+image_path = project_root / "assets" / "JEM_network.jpg"
+image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
+
 st.header("Where does Jemena service?")
 st.write('''
         Jemena's disribution area extends over the North-West of Melbourne. This distibution area covers a mix of industrial, commercial and residential customers,
         some major transport routes as well as the Melbourne International Airport. Semi-rural areas (though rapidly developing) exist around Sydenham, Sunbury and Coolaroo.
         The Jemena Network environment is bordered by the Yarra river in the East and Port Phillip Bay in the south.
         ''')
-st.image(r"C:\Users\eylim\OneDrive - onlineeportal\Documents\GitHub\Internship-2025\assets\JEM_network.jpg", caption="The Jemena Electricity Network")
+st.image(image_path_str, caption="The Jemena Electricity Network")
 # ---------------------------
 # Interactive Quiz / Elements
 # ---------------------------
 st.subheader("Test Your Understanding")
+
 
 # 1. Checkbox-based question
 st.write("**Q1: Which part of the grid handles the highest voltage?**")
@@ -128,6 +144,9 @@ if st.checkbox("Transmission"):
     st.success("Correct! Transmission lines handle the highest voltages.")
 if st.checkbox("Distribution"):
     st.error("Distribution lines carry electricity at lower voltages to the end users.")
+
+image_path = project_root / "assets" / "JEN_customers.png"
+image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
 
 st.write("**Q2: Approximately how many customers do you think Jemena services?**")
 answer_q2 = st.radio(
@@ -142,7 +161,7 @@ elif answer_q2 == ("300,000"):
     st.error("Jemena services more customers than this!")
 elif answer_q2==("400,000"):
     st.success("Correct! Jemena services more than 387,000 customers for their electricity needs!")
-    st.image(r"C:\Users\eylim\OneDrive - onlineeportal\Documents\GitHub\Internship-2025\assets\JEN_customers.png", caption="The Jemena Customer Breakdown")
+    st.image(image_path_str, caption="The Jemena Customer Breakdown")
 
 # 2. Buttons question
 st.write("**Q3: Which segment of the network typically operates at 120 V or 240 V for homes?**")
