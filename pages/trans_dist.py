@@ -151,8 +151,19 @@ image_path_str = image_path.as_posix() # Convert the path to a POSIX-style strin
 st.write("**Q2: Approximately how many customers do you think Jemena services?**")
 answer_q2 = st.radio(
     "",
-    ["100,000", "200,000", "300,000", "400,000"]
+    [" ","100,000", "200,000", "300,000", "400,000"]
 )
+st.markdown(
+        """
+    <style>
+        div[role=radiogroup] label:first-of-type {
+            visibility: hidden;
+            height: 0px;
+        }
+    </style>
+    """,
+        unsafe_allow_html=True,
+    )
 if answer_q2==("100,000"):
     st.error("Jemena services more customers than this!")
 elif answer_q2==("200,000"):
@@ -167,7 +178,7 @@ elif answer_q2==("400,000"):
 st.write("**Q3: Which segment of the network typically operates at 120 V or 240 V for homes?**")
 answer_q3 = st.radio(
     "",
-    ["Transmission Network", "Distribution Network"]
+    [" ", "Transmission Network", "Distribution Network"]
 )
 if answer_q3 == "Transmission Network":
     st.error("Not quite. Transmission lines operate at much higher voltages.")
@@ -175,7 +186,7 @@ elif answer_q3 == "Distribution Network":
     st.success("Correct! Distribution lines usually serve customers at these lower voltage levels.")
 
 # 3. Slider to guess typical medium voltage range
-st.write("**Q3: Guess the typical medium-voltage range (in kV) used in distribution.**")
+st.write("**Q4: Guess the typical medium-voltage range (in kV) used in distribution.**")
 medium_voltage_guess = st.slider("Select kV range", min_value=1, max_value=50, value=15)
 if 4 <= medium_voltage_guess <= 35:
     st.success("You're correct! Medium-voltage lines are often between 4 kV and 35 kV.")
