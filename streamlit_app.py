@@ -36,7 +36,7 @@ trans_dist_page = st.Page(
     title = "Transmission vs Distribution",
     icon = ":material/bolt:",   
 )
-distribution_intro_page = st.Page(
+distribution_concepts_page = st.Page(
     page = "pages/distribution_intro.py",
     title = "Key Concepts of Distribution",
     icon = ":material/electrical_services:",   
@@ -53,7 +53,7 @@ pg = st.navigation(
         # "Electricity": [home_page, projects_page, values_page],
         # "Assets and Operations": [stakeholders_page, zinfra_page],
 
-        "Week 1 Deliverables": [trans_dist_page, distribution_intro_page, distribution_role_page],
+        "Week 1 Deliverables": [trans_dist_page, distribution_concepts_page, distribution_role_page],
         "Week 2 Deliverables": [],
         "Week 3 Deliverables": [],
         "Week 4 Deliverables": [],
