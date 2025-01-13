@@ -43,7 +43,7 @@ distribution_concepts_page = st.Page(
 )
 distribution_role_page = st.Page(
     page = "pages/distribution_role.py",
-    title = "Role of Distribution",
+    title = "Distribution in the Modern Grid",
     icon = ":material/wind_power:",   
 )
 # --- Nav setup ---
