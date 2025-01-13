@@ -37,7 +37,7 @@ trans_dist_page = st.Page(
     icon = ":material/bolt:",   
 )
 distribution_concepts_page = st.Page(
-    page = "pages/distribution_intro.py",
+    page = "pages/distribution_key_concepts.py",
     title = "Key Concepts of Distribution",
     icon = ":material/electrical_services:",   
 )
