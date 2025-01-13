@@ -136,62 +136,79 @@ st.image(image_path_str, caption="The Jemena Electricity Network")
 # Interactive Quiz / Elements
 # ---------------------------
 st.subheader("Test Your Understanding")
+st.markdown("""
+    **Answer the following questions to check your understanding of Jemena's role as a DNSP.**
+    """)
 
+with st.form("quiz_q1"):
+    # 1. Checkbox-based question
+    st.write("**Q1: Which part of the grid handles the highest voltage?**")
+    if st.checkbox("Transmission"):
+        st.success("Correct! Transmission lines handle the highest voltages.")
+    if st.checkbox("Distribution"):
+        st.error("Distribution lines carry electricity at lower voltages to the end users.")
 
-# 1. Checkbox-based question
-st.write("**Q1: Which part of the grid handles the highest voltage?**")
-if st.checkbox("Transmission"):
-    st.success("Correct! Transmission lines handle the highest voltages.")
-if st.checkbox("Distribution"):
-    st.error("Distribution lines carry electricity at lower voltages to the end users.")
+    image_path = project_root / "assets" / "JEN_customers.png"
+    image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
+    submitted = st.form_submit_button("Submit")
 
-image_path = project_root / "assets" / "JEN_customers.png"
-image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
-
-st.write("**Q2: Approximately how many customers do you think Jemena services?**")
-answer_q2 = st.radio(
-    "",
-    [" ","100,000", "200,000", "300,000", "400,000"]
-)
-st.markdown(
-        """
-    <style>
-        div[role=radiogroup] label:first-of-type {
-            visibility: hidden;
-            height: 0px;
-        }
-    </style>
-    """,
-        unsafe_allow_html=True,
+with st.form("quiz_q2"):
+    st.write("**Q2: Approximately how many customers do you think Jemena services?**")
+    answer_q2 = st.radio(
+        "",
+        [" ","100,000", "200,000", "300,000", "400,000"]
     )
-if answer_q2==("100,000"):
-    st.error("Jemena services more customers than this!")
-elif answer_q2==("200,000"):
-    st.error("Jemena services more customers than this!")
-elif answer_q2 == ("300,000"):
-    st.error("Jemena services more customers than this!")
-elif answer_q2==("400,000"):
-    st.success("Correct! Jemena services more than 387,000 customers for their electricity needs!")
-    st.image(image_path_str, caption="The Jemena Customer Breakdown")
+    st.markdown(
+            """
+        <style>
+            div[role=radiogroup] label:first-of-type {
+                visibility: hidden;
+                height: 0px;
+            }
+        </style>
+        """,
+            unsafe_allow_html=True,
+        )
+    if answer_q2==("100,000"):
+        st.error("Jemena services more customers than this!")
+    elif answer_q2==("200,000"):
+        st.error("Jemena services more customers than this!")
+    elif answer_q2 == ("300,000"):
+        st.error("Jemena services more customers than this!")
+    elif answer_q2==("400,000"):
+        st.success("Correct! Jemena services more than 387,000 customers for their electricity needs!")
+        st.image(image_path_str, caption="The Jemena Customer Breakdown")
+    submitted2 = st.form_submit_button("Submit")
 
-# 2. Buttons question
-st.write("**Q3: Which segment of the network typically operates at 120 V or 240 V for homes?**")
-answer_q3 = st.radio(
-    "",
-    [" ", "Transmission Network", "Distribution Network"]
-)
-if answer_q3 == "Transmission Network":
-    st.error("Not quite. Transmission lines operate at much higher voltages.")
-elif answer_q3 == "Distribution Network":
-    st.success("Correct! Distribution lines usually serve customers at these lower voltage levels.")
+with st.form("quiz_q3"):
+    # 2. Buttons question
+    st.write("**Q3: Which segment of the network typically operates at 120 V or 240 V for homes?**")
+    answer_q3 = st.radio(
+        "",
+        [" ", "Transmission Network", "Distribution Network"]
+    )
+    if answer_q3 == "Transmission Network":
+        st.error("Not quite. Transmission lines operate at much higher voltages.")
+    elif answer_q3 == "Distribution Network":
+        st.success("Correct! Distribution lines usually serve customers at these lower voltage levels.")
+    submitted3 = st.form_submit_button("Submit")
 
-# 3. Slider to guess typical medium voltage range
-st.write("**Q4: Guess the typical medium-voltage range (in kV) used in distribution.**")
-medium_voltage_guess = st.slider("Select kV range", min_value=1, max_value=50, value=15)
-if 4 <= medium_voltage_guess <= 35:
-    st.success("You're correct! Medium-voltage lines are often between 4 kV and 35 kV.")
-else:
-    st.info("Typically, medium-voltage lines range from about 4 kV to 35 kV.")
+with st.form("quiz_q4"):
+    # 4. Slider to guess typical medium voltage range
+    st.write("**Q4: Guess the typical medium-voltage range (in kV) used in distribution.**")
+    medium_voltage_guess = st.slider("Select kV range", min_value=1, max_value=50, value=5, key = "q4_slider")
+    # if 4 <= medium_voltage_guess <= 35:
+    #     st.success("You're correct! Medium-voltage lines are often between 4 kV and 35 kV.")
+    # else:
+    #     st.info("Typically, medium-voltage lines range from about 4 kV to 35 kV.")
+
+    submitted4= st.form_submit_button("Submit")
+    if submitted4:
+        if 4 <= medium_voltage_guess <= 35:
+            st.success("You're correct! Medium-voltage lines are often between 4 kV and 35 kV.")
+        else:
+            st.info("Not quite, typically, medium-voltage lines range from about 4 kV to 35 kV.")
+
 
 # ---------------------------
 # Conclusion / Thank You

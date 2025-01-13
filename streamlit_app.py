@@ -53,8 +53,7 @@ pg = st.navigation(
         # "Electricity": [home_page, projects_page, values_page],
         # "Assets and Operations": [stakeholders_page, zinfra_page],
 
-        "Week 1 Deliverables": [trans_dist_page, distribution_concepts_page, distribution_role_page],
-        "Week 2 Deliverables": [],
+        "Week 2 Deliverables": [trans_dist_page, distribution_concepts_page, distribution_role_page],
         "Week 3 Deliverables": [],
         "Week 4 Deliverables": [],
         "Week 5 Deliverables": [],
