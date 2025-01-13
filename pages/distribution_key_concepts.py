@@ -1,27 +1,23 @@
 import streamlit as st
-
+from pathlib import Path
+# ---------------------------
 # Page Config
 # ---------------------------
 st.set_page_config(
-    page_title="Electricity Distribution Network",
+    page_title="Key Concepts of Distribution",
     layout="centered"
 )
-
-col1, col2, col3 = st.columns([9, 11, 11])
-
-# ---------------------------
-# Jemena Image 
-# ---------------------------
-with col2:
-    st.image(
-        r"C:\Users\kzammit\OneDrive - onlineeportal\Documents\GitHub\Internship-2025\Jemena_BrandMark_RGB_000.png"
-        # r"C:\Users\bpoort\OneDrive - onlineeportal\Desktop\web_app\images\Jemena_BrandMark_RGB_000.png"
-    )
 
 # ---------------------------
 # Main Title
 # ---------------------------
-st.title("Key concepts of Distribution")
+
+script_dir = Path(__file__).parent
+project_root = script_dir.parent 
+image_path = project_root / "assets" / "distribution_flowchart.PNG"
+image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
+
+st.title("Key Concepts of Distribution")
 
 st.write(
     """
@@ -33,9 +29,7 @@ st.write(
 )
 
 
-st.image(
-        r"C:\Users\kzammit\OneDrive - onlineeportal\Documents\GitHub\Internship-2025\distribution_flowchart.PNG",caption = "Distribution Flowchart", use_container_width=True)
-        # r"C:\Users\bpoort\OneDrive - onlineeportal\Desktop\web_app\images\Jemena_BrandMark_RGB_000.png"
+st.image(image_path_str,caption = "Distribution Flowchart", use_container_width=True)
 
 
 st.subheader("Main components of the distribution system")
@@ -223,10 +217,11 @@ st.write(
 
 col111  , col222= st.columns([9, 11])
 
+image_path = project_root / "assets" / "jemena-smart-meter.png"
+image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
+
 with col111:
-    st.image(
-            r"C:\Users\kzammit\OneDrive - onlineeportal\Documents\GitHub\Internship-2025\jemena-smart-meter.png", caption= "Jemena smart meter", use_container_width=True)
-            # r"C:\Users\bpoort\OneDrive - onlineeportal\Desktop\web_app\images\Jemena_BrandMark_RGB_000.png"
+    st.image(image_path_str, caption= "Jemena smart meter", use_container_width=True)
 
 
 # Question 4 - Multiple Choice with Custom Feedback
