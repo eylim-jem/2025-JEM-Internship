@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
+from pathlib import Path
 
 # --- Page Setup ---
  
@@ -67,5 +68,8 @@ pg = st.navigation(
 pg.run()
 
 # --- Logo (all pages) ---
-st.logo(r"C:\Users\eylim\OneDrive - onlineeportal\Documents\GitHub\Internship-2025\assets\Jemena_BrandMark_RGB_000.png", link = "https://www.jemena.com.au/")
+script_dir = Path(__file__).parent
+image_path = script_dir / "assets" / "Jemena_BrandMark_RGB_000.png"
+image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
+st.logo(image_path_str, size="small", link = "https://www.jemena.com.au/")
 
