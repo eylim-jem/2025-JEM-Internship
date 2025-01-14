@@ -70,7 +70,7 @@ image_path_str = image_path.as_posix() # Convert the path to a POSIX-style strin
 with col2:
     st.image(image_path_str, width=1000)
 
-st.header("What does Jemena do?")
+st.header("2. What does Jemena do?")
 st.write(
     """
     Distribution is Jemena’s position in the supply chain (a **DNSP** or Distribution Network Service Provider). In Victoria, Jemena covers the electricity needs of a variety of different types of customers. 
@@ -125,7 +125,7 @@ st.write(
 image_path = project_root / "assets" / "JEM_network.jpg"
 image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
 
-st.header("Where does Jemena service?")
+st.header("3. Where does Jemena service?")
 st.write('''
         Jemena's disribution area extends over the North-West of Melbourne. This distibution area covers a mix of industrial, commercial and residential customers,
         some major transport routes as well as the Melbourne International Airport. Semi-rural areas (though rapidly developing) exist around Sydenham, Sunbury and Coolaroo.
