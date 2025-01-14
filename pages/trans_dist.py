@@ -31,7 +31,7 @@ st.title("What is an Electricity Distribution Network?")
 
 st.write(
     """
-    Distribution is one of the stages of the electricity network, coming after the Generation and Transmsission stages.
+    **Distribution** is one of the stages of the electricity network, coming after the :red[Generation] and :blue[Transmsission] stages.
     An **electricity distribution network** is the portion of the power delivery system 
     that carries electricity from higher-voltage transmission lines to homes, businesses, 
     and other end users at a lower voltage level.
@@ -225,3 +225,5 @@ st.write(
     to our homes, businesses, and industries. 
     """
 )
+
+
