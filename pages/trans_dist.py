@@ -113,13 +113,17 @@ with st.expander("What is n-1?"):
              ''')
 st.write(
     """
-    Combined, these reliability and quality standards ensure that the grid is resilient enough to manage the load and support current and potentially forecasted customer demands
-    \nAs Australia's power landscape is changing, Jemena has an increasing responsibility for recognising and adapting to changes to electricity networks from:
+    Combined, these reliability and quality standards ensure that the grid is resilient enough to manage the load and support current and potentially forecasted customer demands.
+
+    """
+)
+st.write(
+    '''
+    As Australia's power landscape is changing, Jemena has an increasing responsibility for recognising and adapting to changes to electricity networks from:
     - Customers generating their own power (PV installations)
     - Injection of renewables into the grid (wind and solar farms)
     - Accelerating development of power hungry data centres
-
-    """
+    '''
 )
 
 image_path = project_root / "assets" / "JEM_network.jpg"
@@ -127,7 +131,7 @@ image_path_str = image_path.as_posix() # Convert the path to a POSIX-style strin
 
 st.header("3. Where does Jemena service?")
 st.write('''
-        Jemena's disribution area extends over the North-West of Melbourne. This distibution area covers a mix of industrial, commercial and residential customers,
+        Jemena's disribution area extends over the North-West of Melbourne. This distribution area covers a mix of industrial, commercial and residential customers,
         some major transport routes as well as the Melbourne International Airport. Semi-rural areas (though rapidly developing) exist around Sydenham, Sunbury and Coolaroo.
         The Jemena Network environment is bordered by the Yarra river in the East and Port Phillip Bay in the south.
         ''')
