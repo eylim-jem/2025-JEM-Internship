@@ -31,6 +31,8 @@ from pathlib import Path
 #     icon = ":material/engineering:",
 # )
 
+# Week 2
+
 trans_dist_page = st.Page(
     page = "pages/trans_dist.py",
     title = "Transmission vs Distribution",
@@ -46,6 +48,27 @@ distribution_role_page = st.Page(
     title = "Distribution in the Modern Grid",
     icon = ":material/wind_power:",   
 )
+
+# Week 3 pages
+
+other_utilities_page= st.Page( 
+    page = "pages/other_utilities.py",
+    title = "Other utilities",
+    icon = ":material/search:",   
+)
+business_model__page = st.Page( 
+    page = "pages/business_model.py",
+    title = "Business Model",
+    icon = ":material/business:",   
+)
+organisation_structure_page= st.Page( 
+    page = "pages/organisation_structure.py",
+    title = "Organisation structure",
+    icon = ":material/edit:",   
+)
+
+
+
 # --- Nav setup ---
 pg = st.navigation(
     {
@@ -54,7 +77,7 @@ pg = st.navigation(
         # "Assets and Operations": [stakeholders_page, zinfra_page],
 
         "Week 2 Deliverables": [trans_dist_page, distribution_concepts_page, distribution_role_page],
-        "Week 3 Deliverables": [],
+        "Week 3 Deliverables": [other_utilities_page, business_model__page, organisation_structure_page],
         "Week 4 Deliverables": [],
         "Week 5 Deliverables": [],
         "Week 6 Deliverables": [],
