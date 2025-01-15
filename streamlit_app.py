@@ -53,7 +53,7 @@ distribution_role_page = st.Page(
 
 other_utilities_page= st.Page( 
     page = "pages/other_utilities.py",
-    title = "Other utilities",
+    title = "Other Utilities",
     icon = ":material/search:",   
 )
 business_model__page = st.Page( 
@@ -63,7 +63,7 @@ business_model__page = st.Page(
 )
 organisation_structure_page= st.Page( 
     page = "pages/organisation_structure.py",
-    title = "Organisation structure",
+    title = "Organisation Structure",
     icon = ":material/edit:",   
 )
 
