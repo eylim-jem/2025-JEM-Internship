@@ -70,7 +70,7 @@ image_path_str = image_path.as_posix() # Convert the path to a POSIX-style strin
 with col2:
     st.image(image_path_str, width=1000)
 
-st.header("2. What does Jemena do?")
+st.header("2. What Role Does Jemena Play?")
 st.write(
     """
     Distribution is Jemena’s position in the supply chain (a **DNSP** or Distribution Network Service Provider). In Victoria, Jemena covers the electricity needs of a variety of different types of customers. 
