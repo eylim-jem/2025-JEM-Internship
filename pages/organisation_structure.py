@@ -36,7 +36,7 @@ st.markdown("""
   1. **Jemena:** Focused on managing and operating energy assets.
   2. **Zinfra:** Provides construction and operational services, including overhead work, underground work, and maintenance.
 """)
-st.image(image_path_str, caption="Company Strcture", use_container_width=True)
+st.image(image_path_str, caption="Company Structure", use_container_width=True)
 st.markdown("""
 - **Highlights of SGSPAA:**
   - Provides energy services to over **1.7 million Australian customers**.
