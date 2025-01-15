@@ -109,7 +109,8 @@ st.write(
 )
 with st.expander("What is n-1?"):
     st.write('''
-            A n-1 redundancy system in the context of the electricity network is one in which there is a backup route of electricity delivery should any component along any single network line fail.
+            A n-1 redundancy system in the context of the electricity network is one in which there is a backup route of electricity delivery should one component in a network line fail.
+            Without it, a single component failure could result in widespread outages. 
              ''')
 st.write(
     """
