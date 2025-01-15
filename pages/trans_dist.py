@@ -31,7 +31,7 @@ st.title("What is an Electricity Distribution Network?")
 
 st.write(
     """
-    **Distribution** is one of the stages of the electricity network, coming after the [Generation](https://www.aemc.gov.au/energy-system/electricity/changing-generation-mix/victoria) and [Transmission](https://www.ausnetservices.com.au/electricity/transmission-network) stages.
+    **Distribution** is the third stage of the electricity network, coming after the [Generation](https://www.aemc.gov.au/energy-system/electricity/changing-generation-mix/victoria) and [Transmission](https://www.ausnetservices.com.au/electricity/transmission-network) stages.
     An **electricity distribution network** is the portion of the power delivery system 
     that carries electricity from higher-voltage transmission lines to homes, businesses, 
     and other end users at a lower voltage level.
