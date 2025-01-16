@@ -59,7 +59,7 @@ with col2:
     st.markdown("""
     - Steps down the high transmission voltage to lower voltages suitable for end users.
     - Delivers electricity from local substations directly to residential, commercial, and industrial customers.
-    - Infrastructure: Usually consists of medium-voltage (e.g., 4 kV to 35 kV) and low-voltage lines (e.g., 120 V or 240 V for homes), often on street poles or underground in urban settings.
+    - Infrastructure: Usually consists of medium-voltage (e.g., 4 kV to 35 kV) and low-voltage lines (230V to Jemena customers), often on street poles or underground in urban settings.
     """)
 
 col1, col2, col3 = st.columns([0.1, 50, 0.1])  # Proportions for centering the image
