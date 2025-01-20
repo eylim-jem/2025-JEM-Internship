@@ -42,7 +42,8 @@ with tab1:
     with container:
         st.image(image_path_str, use_container_width=True)
         st.write('''
-                Natural gas is sourced from natural gas wells and processed.
+                Natural gas is sourced from natural gas wells and processed. Jemena transports gas from gas wells in the Surat/Cooper Basin to the Gladstone and Rockhampton markets in Queensland,
+                 as well as from wells in Victoria's Gippsland Basin to Sydney, the ACT and regional New South Wales.
                     ''')
 
 with tab2:
@@ -52,7 +53,7 @@ with tab2:
         image_path_str = image.as_posix()
         st.image(image_path_str, use_container_width=True)
         st.write('''
-                The transporting of natural gas over long distances.
+                The transporting of natural gas over long distances. These gas pipelines often operate under high pressures to optimise shipping capacity.
                     ''')
 
 with tab3:
@@ -62,7 +63,8 @@ with tab3:
         image_path_str = image.as_posix()
         st.image(image_path_str, use_container_width=True)
         st.write('''
-                The transporting of natural gas to customers from major pipelines.
+                The transporting of natural gas to customers from major pipelines. Distributors are responsible for ensuring the safe and reliable flow of natural gas, as well as reading gas meters and providing meter data
+                 to gas retailers.
                     ''')
 
 with tab4:
@@ -72,7 +74,8 @@ with tab4:
         image_path_str = image.as_posix()
         st.image(image_path_str, use_container_width=True)
         st.write('''
-                The management of customer gas accounts and billing.
+                The management of customer gas accounts and billing. These bills are comprised of fixed and variable charges based on usage. For Jemena's network, the typical gas bill
+                 is $801, with Jemena accounting for 31 percent of this cost.
                     ''')
 
 
