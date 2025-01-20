@@ -1,26 +1,22 @@
 import streamlit as st
-from pathlib import Path
 
-st.title("What Are Our Values?")
-
-script_dir = Path(__file__).parent
-project_root = script_dir.parent 
-image_path = project_root / "assets" / "group_values.png"
-image_path_str = image_path.as_posix() # Convert the path to a POSIX-style string (with forward slashes)
+st.title("Jemena's Values")
 
 # Text content
 st.markdown(
     """
-    **Values are important**, because whilst it’s important **WHAT** we deliver, it’s equally important **HOW** we deliver our outcomes. 
-    
-    Our Values should underpin everything we do – guiding the way we behave, speak, and act."""
+    Having a clearly articulated set of values provide a consistent guide for team members regarding what we expect. 
+    **Values are important**, because whilst it’s important **WHAT** we deliver, it’s equally important **HOW** we deliver our outcomes.
+
+     """
 )
 
-
-st.image(
-    image_path_str, caption="Jemena's Group Values", use_container_width=True)
-
 st.write("---")
+
+st.subheader("What Are Our Values?")
+
+st.markdown("The values listed below should underpin everything we do: guiding the way we behave, speak, and act.")
+
 
 # Values in more detail.
 
@@ -112,7 +108,7 @@ for principle in principles:
         "Better Together": "🤝",
         "Be Accountable": "✅",
         "Find a Better Way": "🔍",
-        "Think Like a Customer": "🛍️",
+        "Think Like a Customer": "👨‍👩‍👧",
         "We Care": "❤️"
     }
     st.header(f"{icons[principle['title']]} {principle['title']}")
@@ -127,3 +123,4 @@ for principle in principles:
             st.write(f"- {item}")
 
     st.markdown("---")
+
