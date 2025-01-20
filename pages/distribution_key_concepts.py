@@ -212,6 +212,7 @@ st.write(
     Redundancy refers to incorporating backup systems, equipment, or infrastructure to ensure a continuous 
     and reliable electricity supply. In case one distribution network fails, there remain alternative paths to supply energy, 
     minimizing outages, maintaining grid stability, and ensuring that customers have a constant power supply.
+    In the case of emergency or maintenance, following a "n-1" rule in network planning allows for planned or unexpected failures to have less impact on network stability.
     """
 )
 
