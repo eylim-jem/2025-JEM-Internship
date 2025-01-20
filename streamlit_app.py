@@ -67,7 +67,13 @@ organisation_structure_page= st.Page(
     icon = ":material/edit:",   
 )
 
+# Week 4 pages
 
+values_page= st.Page( 
+    page = "pages/values.py",
+    title = "Group Values",
+    icon = ":material/star:",   
+)
 
 # --- Nav setup ---
 pg = st.navigation(
@@ -78,7 +84,7 @@ pg = st.navigation(
 
         "Week 2 Deliverables": [trans_dist_page, distribution_concepts_page, distribution_role_page],
         "Week 3 Deliverables": [other_utilities_page, business_model__page, organisation_structure_page],
-        "Week 4 Deliverables": [],
+        "Week 4 Deliverables": [values_page],
         "Week 5 Deliverables": [],
         "Week 6 Deliverables": [],
         "Week 7 Deliverables": [],
