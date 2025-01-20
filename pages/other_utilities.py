@@ -20,7 +20,7 @@ st.markdown(
 
 st.title("Other Utilities")
 
-st.header("1. Jemena Gas Networks (JGN)?")
+st.header("1. Jemena Gas Networks")
 st.markdown("""
             Jemena owns and operates a diverse portfolio of energy assets across northern Australia and the East Coast, 
             accounting for more than $12.4 billion worth of major utility infrastructure. 
@@ -154,19 +154,32 @@ with st.form("quiz_form"):
         options=["", "True","False"],
         key="q2"
     )
+    if q2 == ("False"):
+        st.error("Try again.")
+    if q2 == ("True"):
+        st.success("Correct! Jemena connects more than 1.5 million homes and businesses.")
     
     # Question 3 
     q3 = st.radio(
-        " ",
+        "As a gas provider, which of these options is Jemena responsible for? ",
         options=[
-            "",
-            "",
-            "",
-            "",
-            ""
+            " ",
+            "Managing customer accounts and delivering gas to homes",
+            "Reading gas meters and issuing bills",
+            "Sourcing gas and issuing bills",
+            "Delivering gas to homes and reading gas meters",
+            
         ],
         key="q3"
     )
+    if q3 == ("Managing customer accounts and delivering gas to homes"):
+        st.error("Close! Retailers manage customer accounts.")
+    if q3 == ("Reading gas meters and issuing bills"):
+        st.error("Close! Retailers issue bills to customers.")
+    if q3== ("Sourcing gas and issuing bills"):
+        st.error("Close! Jemena is not involved with the production or sourcing of natural gas.")
+    if q3 == ("Delivering gas to homes and reading gas meters"):
+        st.success("Correct! As a distributor, Jemena delivers gas to homes and reads gas meters.")
     
     # Submit Button
     submit_button = st.form_submit_button("Submit Answers")
@@ -175,7 +188,7 @@ with st.form("quiz_form"):
         st.write("### Results")
         correct_answers = {
             "q2": "True",
-            "q3": "To provide financial backing and access to global resources"
+            "q3": "Delivering gas to homes and reading gas meters"
         }
         
         score = 0
@@ -190,7 +203,7 @@ with st.form("quiz_form"):
         
         st.write(f"You scored {score}/3.")
         if score == 3:
-            st.success("Great job! You know SGSPAA well.")
+            st.success("Great job! Now you are familiarised with JGN!")
         elif score == 2:
             st.info("Good effort! Review the information and try again.")
         else:
