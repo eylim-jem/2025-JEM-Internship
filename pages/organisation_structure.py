@@ -21,8 +21,6 @@ st.markdown(
 # Title and Introduction
 st.title("Jemena's Organisation Structure")
 
-st.write("---")
-
 # Overview of SGSPAA
 st.header("1. SGSPAA Overview")
 st.markdown("""
