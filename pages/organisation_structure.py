@@ -105,93 +105,86 @@ with st.form("quiz_form"):
 
 ## Include image
 
-st.write("---")
+# Styling for bullet points
+st.markdown('''
+<style>
+[data-testid="stMarkdownContainer"] ul {
+    list-style-position: inside;
+}
+</style>
+''', unsafe_allow_html=True)
 
-# Jemena Section
 st.header("2. Jemena")
-
 st.markdown("""
-Jemena focuses on electricity (distribution) and gas (distribution and transmission) networks.  
-It manages **over $11 billion worth of energy assets** and is structured into the following five main branches:
+Jemena focuses on **electricity (distribution)** and **gas (distribution and transmission)** networks.  
+It manages **over $12.4 billion worth of energy assets** and is structured into the following five main branches:
 """)
 
+st.subheader("1. **Gas Markets**")
+st.subheader("2. **Digital**")
+st.subheader("3. **Finance**")
+st.subheader("4. **Group Strategy**")
+st.subheader("5. **Networks**")
+
+# Networks Branch Details
 st.markdown("""
-1. **Gas Markets**  
-2. **Digital**  
-3. **Finance**  
-4. **Group Strategy**  
-5. **Networks**  
+**Networks** consists of the following key groups:
+- :blue-background[Asset & Operations (A&O) - Electricity]
+- :blue-background[Asset & Operations (A&O) - Gas]
+- Regulation
+- Customer and Commercial
+- Renewable Gas
+""")
+st.write("---")
+# Section: Assets and Operations
+st.subheader(":blue-background[Asset and Operations]")
+st.markdown("""
+The **Asset & Operations (A&O)** groups for Electricity and Gas play a pivotal role in the Networks branch.  
+The **A&O Electricity** group ensures safe, reliable, and efficient energy delivery by:
+- Overseeing network assets
+- Planning for future energy demands and integrating emerging technologies
+- Managing day-to-day operations, including network information and control
+- Driving business improvements and infrastructure investments
 """)
 
-st.markdown("""
-### Key Groups within the Network branch
-""")
+image = project_root / "assets" / "A&O_struct.png"
+image_path_str = image.as_posix()
 
-with st.expander("**a. Assets & Operations (Electricty):**"):
-    st.markdown("""
-        - **Network Assets:**
-            - Distribution Team
-            - Primary Assets Team
-            - Secondary Assets Team
-            - Metering Team
-        - **Future Network & Planning:**
-            - Network Planning Team
-            - Network Reliability and Intelligence Team
-            - Future Network Team
-        - **Network Operations:**
-            - Network Information and Outage Planning Team
-            - Control and Dispatch Electricity Team
-        - **Business Improvement and Innovation** 
-        - **Network Investment & Delivery** """)
-    
-with st.expander("**b. Assets & Operations (Gas):**"):
-    st.markdown("""
-        - **Engineering and Network control:**
-            - Pipeline Team
-            - Asset Protection Team
-            - Gas Distribution Team
-        - **Network Operations:**
-            - Renewable Gas Engineers
-            - Risk and Assurance Specialists
-        - **Planning and optimisation:** 
-            - Metering Team
-        	- Pipeline Team
-        	- Distribution & Capacity Team
-            - Facilities Team
-        - **Investment and Portfolio**
-     """)
-
+# Expandable Section: A&O Electricity Structure
+with st.expander("**A&O (Electricity) Structure:**"):
+    st.image(image_path_str, caption="", use_container_width=True)
 st.write("---")
 st.header("3. Obtaining your Org Chart")
-st.subheader("Step 1")
-image = project_root / "assets" / "step1.png"
-image_path_str = image.as_posix()
-st.image(image_path_str, caption="Jemena's Group intranet", use_container_width=True)
 
-st.subheader("Step 2")
-image = project_root / "assets" / "step2.png"
-image_path_str = image.as_posix()
+tabs = st.tabs(["**Step 1**", "**Step 2**", "**Step 3**"])
 
-col1, col2, col3 = st.columns([2, 10, 2])
+# Step 1
+with tabs[0]:
+    image = project_root / "assets" / "step1.png"
+    image_path_str = image.as_posix()
+    st.image(image_path_str, caption="Jemena's Group intranet", use_container_width=True)
 
-with col2:
-    st.image(
-        image_path_str, caption="Success Factors Homepage"
-    )
+# Step 2
+with tabs[1]:
+    image = project_root / "assets" / "step2.png"
+    image_path_str = image.as_posix()
 
-st.subheader("Step 3")
-st.markdown("Explore the interactive chart:")
-image = project_root / "assets" / "step3.png"
-image_path_str = image.as_posix()
-st.image(image_path_str, caption="Example Organisation Chart", use_container_width=True)
+    col1, col2, col3 = st.columns([2, 10, 2])
+    with col2:
+        st.image(image_path_str, caption="Success Factors Homepage")
+
+# Step 3
+with tabs[2]:
+
+    st.markdown("Explore your interactive chart!")
+    image = project_root / "assets" / "step3.png"
+    image_path_str = image.as_posix()
+    st.image(image_path_str, caption="Example Organisation Chart", use_container_width=True)
 
 # ---------------------------
-# Conclusion
+# Conclusion Section
 # ---------------------------
 st.write("---")
-st.write("### Thank you for learning about Jemena's organisation structure!")
-st.write(
-    """
-    Feel free to explore more about how power is transmitted and distributed to our homes, businesses, and industries.
-    """
-)
+st.write("### Thank you for learning about Jemena's Organisation structure.")
+
+
