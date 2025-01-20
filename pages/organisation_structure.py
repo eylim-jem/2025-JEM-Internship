@@ -112,6 +112,8 @@ st.markdown('''
 </style>
 ''', unsafe_allow_html=True)
 
+st.write("---")
+
 st.header("2. Jemena")
 st.markdown("""
 Jemena focuses on **electricity (distribution)** and **gas (distribution and transmission)** networks.  
