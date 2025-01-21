@@ -49,7 +49,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader("Transmission")
     st.markdown("""
-    - Transfers **high-voltage** electricity (typically tens or hundreds of kilovolts) over long distances.
+    - Transfers **high-voltage** electricity (typically hundreds of kilovolts) over long distances.
     - Connects power plants (generation sources) to substations in populated or industrial areas.
     - Infrastructure: High-voltage transmission lines (often on tall towers), designed to move large quantities of electricity efficiently over distances.
     """)
@@ -59,7 +59,7 @@ with col2:
     st.markdown("""
     - Steps down the high transmission voltage to lower voltages suitable for end users.
     - Delivers electricity from local substations directly to residential, commercial, and industrial customers.
-    - Infrastructure: Usually consists of medium-voltage (e.g., 4 kV to 35 kV) and low-voltage lines (230V to Jemena customers), often on street poles or underground in urban settings.
+    - Infrastructure: Usually consists of medium-voltage (e.g., 6.6 kV to 66 kV) and low-voltage lines (230V to Jemena customers), often on street poles or underground in urban settings.
     """)
 
 col1, col2, col3 = st.columns([0.1, 50, 0.1])  # Proportions for centering the image
@@ -132,7 +132,7 @@ image_path_str = image_path.as_posix() # Convert the path to a POSIX-style strin
 
 st.header("3. Where does Jemena service?")
 st.write('''
-        Jemena's disribution area extends over the North-West of Melbourne. This distribution area covers a mix of industrial, commercial and residential customers,
+        Jemena's distribution area extends over the North-West of Melbourne. This distribution area covers a mix of industrial, commercial and residential customers,
         some major transport routes as well as the Melbourne International Airport. Semi-rural areas (though rapidly developing) exist around Sydenham, Sunbury and Coolaroo.
         The Jemena Network environment is bordered by the Yarra river in the East and Port Phillip Bay in the south.
         ''')
