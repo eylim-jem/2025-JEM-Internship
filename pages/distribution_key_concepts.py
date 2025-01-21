@@ -35,8 +35,7 @@ image_dist_flowchart_str = image_dist_flowchart.as_posix()
 st.title("Key Concepts of Distribution")
 st.write(
     """
-    Understanding power distribution and its key concepts is essential for maintaining stable 
-    and safe electrical systems. Electricity flows from power stations, where it is transformed 
+     Electricity flows from power stations, where it is transformed 
     to high voltage for long-distance transmission. The current is then carried by transmission lines 
     to a substation where the voltage is lowered for distribution to homes and businesses. The retailer 
     then quantifies your usage before sending you the bill.
@@ -48,114 +47,180 @@ st.image(image_dist_flowchart_str, caption="Distribution Flowchart", use_contain
 # Distribution System Components
 # ---------------------------
 st.subheader("Main Components of the Distribution System")
+
 st.write(
     """
-    **Substations:**
-    - Control the flow of electricity.
-    - Use step-down transformers to reduce voltage for local distribution.
-    - Contain switchgear and circuit breakers that protect the grid by isolating faults and preventing outages from spreading.
-    
-    **Distribution Lines:**
-    - Carry low voltage electricity to homes and businesses.
-    - May use medium or high voltage for industrial use.
-    
-    **Transformers:**
-    - Step up or step down the voltage for safe transmission and distribution.
-    
-    **Feeders:**
-    - Carry electricity from substations to distribution points (transformers or directly to consumers),
-      effectively feeding electrical power to lower-voltage parts of the grid.
+    Understanding power distribution and its key concepts is essential for maintaining stable 
+    and safe electrical systems.
     """
 )
 
-with st.form("distribution_quiz_form"):
-    st.markdown(
+
+# Tab Navigation Setup
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["Substations", "Transformers", "Protection", "Feeders", "Distribution Lines"])
+
+# ---------------------------
+# Substations Tab
+# ---------------------------
+with tab1:
+    st.header("Substations")
+    container = st.container(border=True)
+    st.write(
         """
-        <style>
-            div[role="radiogroup"] label:first-of-type {
-                visibility: hidden;
-                height: 0px;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
+        - Control the flow of electricity.
+        - Use step-down transformers to reduce voltage for local distribution.
+        - Contain switchgear and circuit breakers that protect the grid by isolating faults and preventing outages from spreading.
+        - Primary equipment: 1) Standalone Voltage Transformers (VT) and Current Transformers (CT) are high-accuracy class electrical devices used 
+        to transform voltage or current levels. The most common usage of these transformers is to operate instruments or 
+        metering from high-voltage or high-current circuits, safely isolating secondary control circuitry from the high voltages or 
+        currents.  2) Insulators --> RESEARCH
+        """
+    )
+    with st.form("substations_form"):
+        # Question 1: Substations
+        st.subheader("1. What is the primary function of substations?")
+        q1 = st.radio(
+            "Select one:",
+            (
+                " ",
+                "To increase the voltage of electricity for long-distance transmission",
+                "To control the flow of electricity and reduce voltage for local distribution",
+                "To generate electricity for distribution",
+                "To provide backup power during outages"
+            ),
+            key="q1"
+        )
+        
+        # Submit button for the form
+        submitted_substations = st.form_submit_button("Submit Substations Answer")
+
+# ---------------------------
+# Transformers Tab
+# ---------------------------
+with tab2:
+    st.header("Transformers")
+    container = st.container(border=True)
+    st.write(
+        """
+        - Step up or step down the voltage for safe transmission and distribution.
+        """
     )
 
-    # Question 1: Substations
-    st.subheader("1. What is the primary function of substations?")
-    q1 = st.radio(
-        "Select one:",
-        (
-            " ",
-            "To increase the voltage of electricity for long-distance transmission",
-            "To control the flow of electricity and reduce voltage for local distribution",
-            "To generate electricity for distribution",
-            "To provide backup power during outages"
-        ),
-        key="q1"
+    with st.form("transformers_form"):
+        # Question 2: Transformers
+        st.subheader("2. What role do transformers play in the electrical grid?")
+        q2 = st.radio(
+            "Select one:",
+            (
+                " ",
+                "They help to prevent electrical faults from spreading",
+                "They store electrical energy for later use",
+                "They step up or step down voltage for safe transmission and distribution",
+                "They distribute electricity directly to consumers"
+            ),
+            key="q2"
+        )
+        
+        # Submit button for the form
+        submitted_transformers = st.form_submit_button("Submit Transformers Answer")
+
+# ---------------------------
+# Protection tab
+# ---------------------------
+with tab3:
+    st.header("Protection")
+    container = st.container(border=True)
+    st.write(
+        """
+        - Protection and control equipment within a zone substation is used to detect the presence of a network fault and/or other 
+        abnormal operating conditions and then to automatically initiate action to either isolate the network fault or correct the 
+        abnormal condition by some pre-defined control sequence. 
+        """)
+
+    with st.form("switchgear_form"):
+        # Question 3: Switchgear & Circuit Breakers
+        st.subheader("3. What is the purpose of switchgear and circuit breakers in substations?")
+        q3 = st.radio(
+            "Select one:",
+            (
+                " ",
+                "To increase the voltage of electricity",
+                "To isolate faults and prevent outages from spreading",
+                "To generate electricity",
+                "To convert electricity into usable power for businesses"
+            ),
+            key="q3"
+        )
+        
+        # Submit button for the form
+        submitted_switchgear = st.form_submit_button("Submit Switchgear Answer")
+
+# ---------------------------
+# Feeders Tab
+# ---------------------------
+with tab4:
+    st.header("Feeders")
+    container = st.container(border=True)
+    st.write(
+        """
+        - Carry electricity from substations to distribution points (transformers or directly to consumers),
+            effectively feeding electrical power to lower-voltage parts of the grid.
+        """)
+    with st.form("feeders_form"):
+        # Question 4: Feeders
+        st.subheader("4. What is the primary function of feeders in the electrical grid?")
+        q4 = st.radio(
+            "Select one:",
+            (
+                " ",
+                "To increase the voltage for long-distance transmission",
+                "To carry electricity from substations to transformers or consumers",
+                "To distribute electricity to businesses",
+                "To store electrical energy for later use"
+            ),
+            key="q4"
+        )
+        
+        # Submit button for the form
+        submitted_feed = st.form_submit_button("Submit Feeders Answer")
+
+# ---------------------------
+# Distribution Lines Tab
+# ---------------------------
+with tab5:
+    st.header("Distribution Lines")
+    st.write(
+        """
+        - Carry low voltage electricity to homes and businesses.
+        - May use medium or high voltage for industrial use.
+        -The network comprises over 700 kilometres of electricity distribution lines and cables, delivering approximately 4,321 GWh of energy to over 384,000 homes and businesses for several energy retailers
+        -Poles are utilised to support the overhead electricity network and for public lighting where an underground electricity network is installed. These assets are located across the entire network and are manufactured from various materials, including wood, concrete and steel constructions.
+        -Distribution equipment consists of HV and LV assets that are utilised in the distribution of electricity. This category consists of distribution transformers and their switches including HV switches, HV isolators, LV switchgear, LV isolators  and kiosks.
+         """
     )
+    with st.form("distribution_form"):
+        # Question 5: Voltage in Distribution Lines
+        st.subheader("5. What type of voltage do distribution lines generally carry for homes and businesses?")
+        q5 = st.radio(
+            "Select one:",
+            (
+                " ",
+                "High voltage",
+                "Low voltage",
+                "Medium voltage",
+                "Extra-high voltage"
+            ),
+            key="q5"
+        )
+        
+        # Submit button for the form
+        submitted_distribution = st.form_submit_button("Submit Distribution Answer")
 
-    # Question 2: Transformers
-    st.subheader("2. What role do transformers play in the electrical grid?")
-    q2 = st.radio(
-        "Select one:",
-        (
-            " ",
-            "They help to prevent electrical faults from spreading",
-            "They store electrical energy for later use",
-            "They step up or step down voltage for safe transmission and distribution",
-            "They distribute electricity directly to consumers"
-        ),
-        key="q2"
-    )
-
-    # Question 3: Switchgear & Circuit Breakers
-    st.subheader("3. What is the purpose of switchgear and circuit breakers in substations?")
-    q3 = st.radio(
-        "Select one:",
-        (
-            " ",
-            "To increase the voltage of electricity",
-            "To isolate faults and prevent outages from spreading",
-            "To generate electricity",
-            "To convert electricity into usable power for businesses"
-        ),
-        key="q3"
-    )
-
-    # Question 4: Feeders
-    st.subheader("4. What is the primary function of feeders in the electrical grid?")
-    q4 = st.radio(
-        "Select one:",
-        (
-            " ",
-            "To increase the voltage for long-distance transmission",
-            "To carry electricity from substations to transformers or consumers",
-            "To distribute electricity to businesses",
-            "To store electrical energy for later use"
-        ),
-        key="q4"
-    )
-
-    # Question 5: Voltage in Distribution Lines
-    st.subheader("5. What type of voltage do distribution lines generally carry for homes and businesses?")
-    q5 = st.radio(
-        "Select one:",
-        (
-            " ",
-            "High voltage",
-            "Low voltage",
-            "Medium voltage",
-            "Extra-high voltage"
-        ),
-        key="q5"
-    )
-
-    submitted = st.form_submit_button("Submit Answers")
-
+# ---------------------------
 # Feedback Section
-if submitted:
-    # Feedback for Question 1
+# ---------------------------
+if submitted_substations:
+    # Feedback for Question 1 (Substations)
     if q1 == "To control the flow of electricity and reduce voltage for local distribution":
         st.success("Q1: Correct! Substations help control the flow and reduce voltage for local distribution.")
     elif q1 == "To increase the voltage of electricity for long-distance transmission":
@@ -164,8 +229,9 @@ if submitted:
         st.error("Q1: Incorrect. Substations manage the flow of electricity but do not generate it.")
     elif q1 == "To provide backup power during outages":
         st.error("Q1: Incorrect. Substations manage the grid; they do not provide backup power.")
-    
-    # Feedback for Question 2
+
+if submitted_transformers:
+    # Feedback for Question 2 (Transformers)
     if q2 == "They step up or step down voltage for safe transmission and distribution":
         st.success("Q2: Correct! Transformers adjust voltage levels for safe transmission and distribution.")
     elif q2 == "They help to prevent electrical faults from spreading":
@@ -174,8 +240,9 @@ if submitted:
         st.error("Q2: Incorrect. Transformers do not store energy.")
     elif q2 == "They distribute electricity directly to consumers":
         st.error("Q2: Incorrect. Transformers are not responsible for directly delivering electricity.")
-    
-    # Feedback for Question 3
+
+if submitted_switchgear:
+    # Feedback for Question 3 (Switchgear & Circuit Breakers)
     if q3 == "To isolate faults and prevent outages from spreading":
         st.success("Q3: Correct! Switchgear and circuit breakers isolate faults and prevent the spread of outages.")
     elif q3 == "To increase the voltage of electricity":
@@ -184,8 +251,9 @@ if submitted:
         st.error("Q3: Incorrect. They manage and protect the grid but do not generate electricity.")
     elif q3 == "To convert electricity into usable power for businesses":
         st.error("Q3: Incorrect. Their primary role is grid protection.")
-    
-    # Feedback for Question 4
+
+if submitted_feed:
+    # Feedback for Question 4 (Feeders)
     if q4 == "To carry electricity from substations to transformers or consumers":
         st.success("Q4: Correct! Feeders transport electricity to lower-voltage parts of the grid.")
     elif q4 == "To increase the voltage for long-distance transmission":
@@ -194,8 +262,9 @@ if submitted:
         st.error("Q4: Incorrect. Feeders are used throughout the grid and are not specific to businesses.")
     elif q4 == "To store electrical energy for later use":
         st.error("Q4: Incorrect. Feeders do not store energy.")
-    
-    # Feedback for Question 5
+
+if submitted_distribution:
+    # Feedback for Question 5 (Distribution Lines)
     if q5 == "Low voltage":
         st.success("Q5: Correct! Distribution lines for homes and businesses typically use low voltage.")
     elif q5 == "High voltage":
@@ -204,6 +273,13 @@ if submitted:
         st.error("Q5: Incorrect. Residential areas use low voltage distribution.")
     elif q5 == "Extra-high voltage":
         st.error("Q5: Incorrect. Extra-high voltage is not used for distribution to homes or businesses.")
+
+
+network_summary = project_root / "assets" / "network summary.PNG"
+network_summary_str = network_summary.as_posix()
+
+st.image(network_summary_str, caption="Network summary", use_container_width=True)
+
 
 # Redundancy Explanation
 st.subheader("What is Redundancy?")
@@ -215,6 +291,12 @@ st.write(
     In the case of emergency or maintenance, following a "n-1" rule in network planning allows for planned or unexpected failures to have less impact on network stability.
     """
 )
+
+with st.expander("What is n-1?"):
+    st.write('''
+            A n-1 redundancy system in the context of the electricity network is one in which there is a backup route of electricity delivery should one component in a network line fail.
+            Without it, a single component failure could result in widespread outages. 
+             ''')
 
 # Distribution Network Configurations
 st.subheader("Types of Distribution Network Configurations")
@@ -481,6 +563,11 @@ if submitted:
     else:
         st.error("Q13: Not quite. Secondary distribution operates at lower voltages and is closer to end users.")
 
+
+
+
+
+
 # ---------------------------
 # Conclusion
 # ---------------------------
@@ -491,3 +578,4 @@ st.write(
     Feel free to explore more about how power is transmitted and distributed to our homes, businesses, and industries.
     """
 )
+
