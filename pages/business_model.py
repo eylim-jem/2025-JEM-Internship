@@ -48,6 +48,9 @@ renewables_str = renewables.as_posix()
 # Main Title and Introduction
 # ---------------------------
 st.title("Jemena's Business Model")
+
+st.subheader("'Bringing Energy to Life' ")
+
 st.write(
     """
     Jemena's business model revolves around providing energy solutions that are customer-centric, 
