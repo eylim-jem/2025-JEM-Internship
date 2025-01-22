@@ -116,18 +116,18 @@ with tab1:
                 key="q2_social"  
             )
 
-            st.subheader("3. How does Jemena support the energy transition to Net Zero?")
-            q3 = st.radio(
-                "Select one:",
-                [
-                    "Select an option",
-                    "By focusing on fossil fuels and traditional energy sources",
-                    "By supporting the adoption of clean and renewable energy technologies",
-                    "By reducing energy consumption across all operations",
-                    "By discontinuing energy production to reduce emissions"
-                ],
-                key="q3"
-            )
+            #st.subheader("3. How does Jemena support the energy transition to Net Zero?")
+            #q3 = st.radio(
+            #    "Select one:",
+            #   [
+            #        "Select an option",
+            #        "By focusing on fossil fuels and traditional energy sources",
+            #        "By supporting the adoption of clean and renewable energy technologies",
+            #        "By reducing energy consumption across all operations",
+            #        "By discontinuing energy production to reduce emissions"
+            #    ],
+            #    key="q3"
+            #)
 
             submitted = st.form_submit_button("Submit Answers")
 
@@ -142,10 +142,10 @@ with tab1:
             else:
                 st.error("Q2: Incorrect. The correct answer is investing in customer service and engagement.")
 
-            if q3 == "By supporting the adoption of clean and renewable energy technologies":
-                st.success("Q3: Correct! Jemena is supporting the energy transition to Net Zero by promoting clean and renewable energy.")
-            else:
-                st.error("Q3: Incorrect. Jemena is focusing on clean and renewable technologies to support the energy transition.")
+            #if q3 == "By supporting the adoption of clean and renewable energy technologies":
+            #    st.success("Q3: Correct! Jemena is supporting the energy transition to Net Zero by promoting clean and renewable energy.")
+            #else:
+            #    st.error("Q3: Incorrect. Jemena is focusing on clean and renewable technologies to support the energy transition.")
 
 # ---------------------------
 # Technology & Innovation Tab
@@ -179,12 +179,12 @@ with tab2:
             q2_checkbox2 = st.checkbox("Energy Storage Systems", key="q2_checkbox2")
             q2_checkbox3 = st.checkbox("Nuclear Energy", key="q2_checkbox3")
 
-            st.subheader("3. What type of energy storage solutions is Jemena focusing on?")
-            q3_dropdown = st.selectbox(
-                "Select storage solution:",
-                ["Battery Storage", "Pumped Hydro", "Compressed Air", "Flywheel Storage"],
-                key="q3_dropdown"
-            )
+            # st.subheader("3. What type of energy storage solutions is Jemena focusing on?")
+           # q3_dropdown = st.selectbox(
+            #    "Select storage solution:",
+            #    ["Battery Storage", "Pumped Hydro", "Compressed Air", "Flywheel Storage"],
+            #    key="q3_dropdown"
+            #)
 
             submitted = st.form_submit_button("Submit Answers")
 
@@ -199,10 +199,10 @@ with tab2:
             else:
                 st.error("Q2: Incorrect. Nuclear energy is not used by Jemena at the moment.")
 
-            if q3_dropdown == "Battery Storage":
-                st.success("Q3: Correct! Jemena is focusing on battery storage as part of its energy solutions.")
-            else:
-                st.error("Q3: Incorrect. Battery storage is a primary focus for Jemena.")
+            #if q3_dropdown == "Battery Storage":
+            #    st.success("Q3: Correct! Jemena is focusing on battery storage as part of its energy solutions.")
+            #else:
+            #    st.error("Q3: Incorrect. Battery storage is a primary focus for Jemena.")
 
 # ---------------------------
 # Regulation and Compliance Tab
@@ -215,7 +215,7 @@ with tab3:
         st.subheader("Regulatory Framework")
         st.write(
             """
-            Jemena operates within a highly regulated environment to ensure that its operations are compliant with industry standards 
+            Jemena operates within a highly regulated environment overseen by the Australian Energy regulator to ensure that its operations are compliant with industry standards 
             and regulations. This helps maintain reliability, security, and consumer protection across its service areas.
             """
         )
@@ -273,9 +273,8 @@ with tab4:
 
         st.write(
             """
-            Jemena is committed to reducing its environmental footprint and accelerating the adoption of renewable energy solutions through ambitious sustainability goals. 
-            These include reducing carbon emissions, investing in renewable energy, and promoting energy efficiency in all operations. 
-            Jemena's Net Zero goals and reducing overall carbon emissions in the energy sector.
+            Jemena is committed to reducing its environmental footprint and accelerating the adoption of renewable energy solutions through ambitious sustainability goals.  
+            These include reducing carbon emissions by 50% by 2030, net 0 by 2050, investing in renewable energy, and promoting energy efficiency in all operations. 
             """
         )
         st.image( renewables_str, caption="Renewable energy farms", use_container_width=True)
@@ -298,7 +297,7 @@ with tab4:
             st.subheader("3. Which renewable energy source is Jemena most focused on?")
             q3_dropdown = st.selectbox(
                 "Select renewable energy source:",
-                ["Solar", "Wind", "Hydropower", "Geothermal", "Biomass"],
+                [" ", "Hydropower", "Wind", "Solar", "Geothermal", "Biomass"],
                 key="q3_renewable"
             )
 
