@@ -33,15 +33,6 @@ image_dist_flowchart_str = image_dist_flowchart.as_posix()
 # Main Title and Introduction
 # ---------------------------
 st.title("Key Concepts of Distribution")
-st.write(
-    """
-     Electricity flows from power stations, where it is transformed 
-    to high voltage for long-distance transmission. The current is then carried by transmission lines 
-    to a substation where the voltage is lowered for distribution to homes and businesses. The retailer 
-    then quantifies your usage before sending you the bill.
-    """
-)
-st.image(image_dist_flowchart_str, caption="Distribution Flowchart", use_container_width=True)
 
 # ---------------------------
 # Distribution System Components
@@ -56,6 +47,23 @@ st.write(
 )
 
 
+feeders = project_root / "assets" / "feeders.webp"
+feeders_str = feeders.as_posix()
+
+
+substation = project_root / "assets" / "substation.jpg"
+substation_str = substation.as_posix()
+
+transformer = project_root / "assets" / "transformer.jpg"
+transformer_str = transformer.as_posix()
+
+
+protection_relay = project_root / "assets" / "protection_relay.jpeg"
+protection_relay_str = protection_relay.as_posix()
+
+power_lines = project_root / "assets" / "power_lines.webp"
+power_lines_str = power_lines.as_posix()
+
 # Tab Navigation Setup
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["Substations", "Transformers", "Protection", "Feeders", "Distribution Lines"])
 
@@ -65,17 +73,21 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(["Substations", "Transformers", "Protecti
 with tab1:
     st.header("Substations")
     container = st.container(border=True)
+
+
     st.write(
         """
-        - Control the flow of electricity.
-        - Use step-down transformers to reduce voltage for local distribution.
-        - Contain switchgear and circuit breakers that protect the grid by isolating faults and preventing outages from spreading.
-        - Primary equipment: 1) Standalone Voltage Transformers (VT) and Current Transformers (CT) are high-accuracy class electrical devices used 
-        to transform voltage or current levels. The most common usage of these transformers is to operate instruments or 
-        metering from high-voltage or high-current circuits, safely isolating secondary control circuitry from the high voltages or 
-        currents.  2) Insulators --> RESEARCH
+        - A zone substation is an important site of electrical power transformation and transfer. Zone substations receive high-voltage electricity from larger sub-transmission networks and step it down in to a lower voltage that is suitable for distribution to consumers. In the Jemena network, zone substations often step down voltages, working with 66kV, 22kV, 11kV and 6.6kV voltages, via transformers.  
+
+        - This reduced voltage travels along feeder lines to distribution substations, which are then able to lower the voltage to the standard 400 or 230 volts used in homes and household appliances. 
+
+        - As of June 2024, JEN owns 27 substations around the north-west of Metropolitan Melbourne with a combined capacity of 1,863 MVA of power. Additionally, JEN substations connect to 54 subtransmission lines running at 66 kV and 22 kV, and 232 feeder lines outputting voltages of 22kV, 11kV and 6.6kV. 
+        
         """
     )
+
+    st.image( substation_str, caption="substation", use_container_width=True)
+
     with st.form("substations_form"):
         # Question 1: Substations
         st.subheader("1. What is the primary function of substations?")
@@ -102,9 +114,17 @@ with tab2:
     container = st.container(border=True)
     st.write(
         """
-        - Step up or step down the voltage for safe transmission and distribution.
+       - Transformers at electrical substations play a crucial role in adjusting the voltage of electricity as it is transmitted from power plants to homes and businesses. Their primary function is to either step up or step down the voltage to make it suitable for long-distance transmission or local distribution. 
+
+        - Step-up transformers increase the voltage for efficient long-distance transmission over high-voltage power lines, which reduces energy loss during transport. 
+
+       -  Step-down transformers reduce the voltage to a safer, usable level for consumers once the electricity reaches local distribution networks. 
+
+ 
         """
     )
+    
+    st.image( transformer_str, caption="Transformer", use_container_width=True)
 
     with st.form("transformers_form"):
         # Question 2: Transformers
@@ -137,6 +157,8 @@ with tab3:
         abnormal condition by some pre-defined control sequence. 
         """)
 
+    st.image( protection_relay_str, caption="Protection relay", use_container_width=True)
+
     with st.form("switchgear_form"):
         # Question 3: Switchgear & Circuit Breakers
         st.subheader("3. What is the purpose of switchgear and circuit breakers in substations?")
@@ -166,6 +188,9 @@ with tab4:
         - Carry electricity from substations to distribution points (transformers or directly to consumers),
             effectively feeding electrical power to lower-voltage parts of the grid.
         """)
+    
+    st.image( feeders_str, caption="Feeders", use_container_width=True)
+
     with st.form("feeders_form"):
         # Question 4: Feeders
         st.subheader("4. What is the primary function of feeders in the electrical grid?")
@@ -193,11 +218,15 @@ with tab5:
         """
         - Carry low voltage electricity to homes and businesses.
         - May use medium or high voltage for industrial use.
-        -The network comprises over 700 kilometres of electricity distribution lines and cables, delivering approximately 4,321 GWh of energy to over 384,000 homes and businesses for several energy retailers
-        -Poles are utilised to support the overhead electricity network and for public lighting where an underground electricity network is installed. These assets are located across the entire network and are manufactured from various materials, including wood, concrete and steel constructions.
-        -Distribution equipment consists of HV and LV assets that are utilised in the distribution of electricity. This category consists of distribution transformers and their switches including HV switches, HV isolators, LV switchgear, LV isolators  and kiosks.
+        - The network comprises over 700 kilometres of electricity distribution lines and cables, delivering approximately 4,321 GWh of energy to over 384,000 homes and businesses for several energy retailers
+        - Poles are utilised to support the overhead electricity network and for public lighting where an underground electricity network is installed. These assets are located across the entire network and are manufactured from various materials, including wood, concrete and steel constructions.
+        - Distribution equipment consists of HV and LV assets that are utilised in the distribution of electricity. This category consists of distribution transformers and their switches including HV switches, HV isolators, LV switchgear, LV isolators  and kiosks.
          """
     )
+
+    st.image( power_lines_str, caption="power lines", use_container_width=True)
+
+
     with st.form("distribution_form"):
         # Question 5: Voltage in Distribution Lines
         st.subheader("5. What type of voltage do distribution lines generally carry for homes and businesses?")
@@ -388,6 +417,96 @@ if submitted:
     else:
         st.error("Q8: Not quite. Looped networks are designed to be reliable and provide redundancy.")
 
+
+# ---------------------------
+# Distribution: Primary vs. Secondary
+# ---------------------------
+col_primary, col_secondary = st.columns(2)
+
+
+
+with col_primary:
+    st.subheader("Primary Distribution")
+    st.markdown(
+        """
+        - This stage involves transporting electricity from a substation to local distribution 
+          transformers. It uses higher voltage lines to cover long distances efficiently.
+        - Primary equipment: 1) Standalone Voltage Transformers (VT) and Current Transformers (CT) 
+        """
+    )
+
+with col_secondary:
+    st.subheader("Secondary Distribution")
+    st.markdown(
+        """
+        - This stage delivers electricity at lower voltages from local transformers directly 
+          to homes and other end users.
+        - This includes lower value, faster turnover items that are required in larger quantities such as distribution lines and relays. Coils are also a part of secondary.
+        - Secondary equipment: protection relays, coils
+        """
+    )
+
+with st.form("distribution_types_quiz"):
+    st.markdown(
+        """
+        <style>
+            div[role="radiogroup"] label:first-of-type,
+            div[data-baseweb="select"] span {
+                visibility: hidden;
+                height: 0px;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    # Question 9: Secondary Distribution
+    st.subheader("9. What is the primary function of secondary distribution?")
+    q12 = st.radio(
+        "Select one:",
+        [
+            "Select an option",
+            "Transporting electricity from substations to local transformers",
+            "Delivering energy at lower voltages to end users",
+            "Carrying high voltage across large distances",
+            "Converting electricity for industrial use"
+        ],
+        key="q12"
+    )
+
+    # Question 10: Distribution System Comparison
+    st.subheader("10. Which distribution system covers larger distances and conducts higher voltages?")
+    q13 = st.selectbox(
+        "Select one:",
+        [
+            "Select an option",
+            "Primary distribution",
+            "Secondary distribution"
+        ],
+        key="q13"
+    )
+
+    submitted = st.form_submit_button("Submit Answers")
+
+if submitted:
+    # Feedback for Question 12
+    if q12 == "Select an option":
+        st.info("Q12: Please select an option.")
+    elif q12 == "Delivering energy at lower voltages to end users":
+        st.success("Q12: Correct! Secondary distribution delivers energy at lower voltages to homes and businesses.")
+    else:
+        st.error("Q12: Not quite. Secondary distribution is responsible for delivering energy at lower voltages.")
+
+    # Feedback for Question 13
+    if q13 == "Select an option":
+        st.info("Q13: Please select an option.")
+    elif q13 == "Primary distribution":
+        st.success("Q13: Correct! Primary distribution covers larger distances and conducts higher voltages.")
+    else:
+        st.error("Q13: Not quite. Secondary distribution operates at lower voltages and is closer to end users.")
+
+
+
 # ---------------------------
 # Metering Section
 # ---------------------------
@@ -429,7 +548,7 @@ with st.form("metering_quiz"):
     )
 
     # Question 9: Meter Type
-    st.subheader("9. Which of these meters is used to convert high current/voltage to lower values for easy measurement?")
+    st.subheader("11. Which of these meters is used to convert high current/voltage to lower values for easy measurement?")
     q9 = st.radio(
         "Select one:",
         [
@@ -443,7 +562,7 @@ with st.form("metering_quiz"):
     )
 
     # Question 11: Meters Used by Jemena (Checkboxes)
-    st.subheader("10. Which of the following meters are used by Jemena? (Select all that apply)")
+    st.subheader("12. Which of the following meters are used by Jemena? (Select all that apply)")
     q11_option1 = st.checkbox("Smart meters", key="q11_option1")
     q11_option2 = st.checkbox("Digital meters", key="q11_option2")
     q11_option3 = st.checkbox("Current transformer meters", key="q11_option3")
@@ -454,11 +573,11 @@ with st.form("metering_quiz"):
 if submitted:
     # Feedback for Question 9
     if q9 == "Select an option":
-        st.info("Q9: Please select an option.")
+        st.info("Q11: Please select an option.")
     elif q9 == "Current transformer meters":
-        st.success("Q9: Correct! Current transformer meters step down high current/voltage for accurate readings.")
+        st.success("Q11: Correct! Current transformer meters step down high current/voltage for accurate readings.")
     else:
-        st.error("Q9: Not quite. Current transformer meters are used for measuring high electrical capacities.")
+        st.error("Q11: Not quite. Current transformer meters are used for measuring high electrical capacities.")
 
     # Collect responses for Question 11
     selected_q11 = []
@@ -473,98 +592,13 @@ if submitted:
     
     # Feedback for Question 11
     if not selected_q11:
-        st.info("Q10: Please select one or more options.")
+        st.info("Q12: Please select one or more options.")
     else:
         required_answers = {"Smart meters", "Digital meters", "Current transformer meters"}
         if required_answers.issubset(set(selected_q11)):
-            st.success("Q10: Correct! Jemena uses smart, digital, and current transformer meters.")
+            st.success("Q12: Correct! Jemena uses smart, digital, and current transformer meters.")
         else:
-            st.error("Q10: Not quite. The correct answers are Smart meters, Digital meters, and Current transformer meters.")
-
-# ---------------------------
-# Distribution: Primary vs. Secondary
-# ---------------------------
-col_primary, col_secondary = st.columns(2)
-
-with col_primary:
-    st.subheader("Primary Distribution")
-    st.markdown(
-        """
-        - This stage involves transporting electricity from a substation to local distribution 
-          transformers. It uses higher voltage lines to cover long distances efficiently.
-        """
-    )
-
-with col_secondary:
-    st.subheader("Secondary Distribution")
-    st.markdown(
-        """
-        - This stage delivers electricity at lower voltages from local transformers directly 
-          to homes and other end users.
-        """
-    )
-
-with st.form("distribution_types_quiz"):
-    st.markdown(
-        """
-        <style>
-            div[role="radiogroup"] label:first-of-type,
-            div[data-baseweb="select"] span {
-                visibility: hidden;
-                height: 0px;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    # Question 12: Secondary Distribution
-    st.subheader("11. What is the primary function of secondary distribution?")
-    q12 = st.radio(
-        "Select one:",
-        [
-            "Select an option",
-            "Transporting electricity from substations to local transformers",
-            "Delivering energy at lower voltages to end users",
-            "Carrying high voltage across large distances",
-            "Converting electricity for industrial use"
-        ],
-        key="q12"
-    )
-
-    # Question 13: Distribution System Comparison
-    st.subheader("12. Which distribution system covers larger distances and conducts higher voltages?")
-    q13 = st.selectbox(
-        "Select one:",
-        [
-            "Select an option",
-            "Primary distribution",
-            "Secondary distribution"
-        ],
-        key="q13"
-    )
-
-    submitted = st.form_submit_button("Submit Answers")
-
-if submitted:
-    # Feedback for Question 12
-    if q12 == "Select an option":
-        st.info("Q12: Please select an option.")
-    elif q12 == "Delivering energy at lower voltages to end users":
-        st.success("Q12: Correct! Secondary distribution delivers energy at lower voltages to homes and businesses.")
-    else:
-        st.error("Q12: Not quite. Secondary distribution is responsible for delivering energy at lower voltages.")
-
-    # Feedback for Question 13
-    if q13 == "Select an option":
-        st.info("Q13: Please select an option.")
-    elif q13 == "Primary distribution":
-        st.success("Q13: Correct! Primary distribution covers larger distances and conducts higher voltages.")
-    else:
-        st.error("Q13: Not quite. Secondary distribution operates at lower voltages and is closer to end users.")
-
-
-
+            st.error("Q12: Not quite. The correct answers are Smart meters, Digital meters, and Current transformer meters.")
 
 
 
