@@ -47,14 +47,14 @@ st.write(
 )
 
 
-feeders = project_root / "assets" / "feeders.webp"
+feeders = project_root / "assets" / "feeder.PNG"
 feeders_str = feeders.as_posix()
 
 
-substation = project_root / "assets" / "substation.jpg"
+substation = project_root / "assets" / "SHM.png"
 substation_str = substation.as_posix()
 
-transformer = project_root / "assets" / "transformer.jpg"
+transformer = project_root / "assets" / "TMA - No.1 Transformer (4).JPG"
 transformer_str = transformer.as_posix()
 
 
