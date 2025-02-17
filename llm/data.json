@@ -1,0 +1,63 @@
+[
+    {
+      "prompt": "What is an electricity distribution network?",
+      "response": "An electricity distribution network is part of the supply chain responsible for transporting electricity from transmission networks to end-use customers. High voltage electricity from generators is converted into lower voltages via substations and transformers, then distributed to multiple sources within a local region."
+    },
+    {
+      "prompt": "What infrastructure does an electricity distribution network include?",
+      "response": "Electricity distribution networks include substations, transmission lines, and transformers. They transport electricity through wires over poles or underground cables."
+    },
+    {
+      "prompt": "What is the role of a Distribution Network Service Provider (DNSP)?",
+      "response": "A DNSP is responsible for building, maintaining, and operating the distribution network. They ensure the network meets reliability standards and manage assets to prevent overloads, voltage issues, and safety problems."
+    },
+    {
+      "prompt": "What are the National Electricity Rules and other codes relevant to Jemena?",
+      "response": "Jemena follows the National Electricity Rules, Victorian Electricity System Code, Victoria Electricity Distribution Code, and its Electricity Distribution Licence to ensure service quality and reliability."
+    },
+    {
+      "prompt": "What are the key network limitations a distribution network must address?",
+      "response": "Key limitations include thermal (managing asset utilization to prevent overloads), voltage (avoiding excessively high or low voltages to protect appliances), and fault level (ensuring components can withstand fault conditions)."
+    },
+    {
+      "prompt": "What challenges are electricity distribution networks facing with changing power landscapes?",
+      "response": "Challenges include accommodating customers generating their own power (e.g., solar), integrating renewables, handling increasing demand, and maintaining redundancy to ensure reliability."
+    },
+    {
+      "prompt": "What are the types of distribution network configurations?",
+      "response": "Distribution network configurations include Radial (single direction, cost-effective but vulnerable to outages), Looped (multiple paths for redundancy, reliable but expensive), and Mesh (complex, resilient, used in densely populated areas)."
+    },
+    {
+      "prompt": "What is the difference between primary and secondary distribution?",
+      "response": "Primary distribution involves transporting electricity from substations to local transformers at higher voltages and over larger distances. Secondary distribution delivers electricity from local transformers to end-users at lower voltages."
+    },
+    {
+      "prompt": "What technologies does Jemena use to improve grid reliability?",
+      "response": "Jemena employs technologies like the VVC Control System for voltage management, FLISR for fault detection and isolation ('self-healing' networks), and Broken Neutral Detection models to reduce operational costs and safety risks."
+    },
+    {
+      "prompt": "What are smart grids, and why are they important?",
+      "response": "Smart grids use advanced technologies to monitor and manage electricity flows dynamically, integrate distributed energy resources (DERs) like solar power, and improve overall grid efficiency and reliability."
+    },
+    {
+      "prompt": "What are the key responsibilities of Jemena as a DNSP?",
+      "response": "Jemena is responsible for energy transport, voltage regulation, load management, fault detection and isolation, grid resilience, integration of renewables, and maintaining service quality."
+    },
+    {
+      "prompt": "What are smart meters, and how do they work?",
+      "response": "Smart meters record energy consumption in 30-minute intervals and communicate the data to Jemena, which then provides it to electricity retailers for billing. These meters are installed in over 99% of homes and businesses served by Jemena."
+    },
+    {
+      "prompt": "What is FLISR technology, and what are its benefits?",
+      "response": "FLISR stands for Fault Location, Isolation, and Service Restoration. It uses automated switches to pinpoint and isolate faults, minimizing affected customers and reducing outage duration, leading to improved reliability and customer satisfaction."
+    },
+    {
+      "prompt": "What are low-voltage distribution lines used for?",
+      "response": "Low-voltage distribution lines are used to deliver electricity to homes and small businesses."
+    },
+    {
+      "prompt": "What are the functions of step-down transformers in substations?",
+      "response": "Step-down transformers reduce the high voltage from transmission lines to lower voltages suitable for local distribution."
+    }
+  ]
+  
